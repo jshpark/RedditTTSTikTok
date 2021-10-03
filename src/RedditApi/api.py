@@ -13,7 +13,6 @@ reddit = praw.Reddit(
 
 
 subReddit = reddit.subreddit('AskReddit')
-submissionsJson = []
 
 def getTopPostsJson():
     submissionsList = []
@@ -31,13 +30,5 @@ def getTopPostsJson():
                 "selfText": submission.selftext, 
                 "comments": commentList})
 
-    global submissionsJson 
-    submissionsJson = json.dumps(submissionsList)
-
-def main():
-    getTopPostsJson()
-    print(submissionsJson)
-
-if __name__ == '__main__':
-    main()
+    return json.dumps(submissionsList)
 
